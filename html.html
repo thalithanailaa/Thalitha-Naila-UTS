@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign In</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="page">
+    <!-- Left branding panel -->
+    <section class="panel panel--left" aria-label="Branding">
+      <div class="panel__art" role="img" aria-label="Artwork branding">
+        <img
+          class="panel__bg"
+          src="background.jpg"
+          alt="artwork barbie"
+        />
+
+        <div class="panel__badge">
+          <span class="panel__badgeText">Barbie</span>
+          <span class="panel__badgeDot" aria-hidden="true"></span>
+        </div>
+
+        <div class="panel__quote">
+          <p class="panel__quoteText">Think Pink, Live the Dream.</p>
+        </div>
+      </div>
+
+      <div class="panel__leftOverlay" aria-hidden="true"></div>
+    </section>
+
+    <!-- Right form panel -->
+    <section class="panel panel--right" aria-label="Form Sign In">
+      <div class="formCard">
+        <header class="formCard__header">
+          <div class="brand">
+            <img
+              class="brand__logo"
+              src="logo.jpg"
+              alt="Logo Barbie"
+            />
+          </div>
+
+          <h1 class="formCard__title">Welcome back</h1>
+          <p class="formCard__subtitle">Please sign in to continue.</p>
+        </header>
+
+        <div class="social">
+          <button class="social__btn" type="button">
+            <span class="social__icon" aria-hidden="true">G</span>
+            <span>Sign in with Google</span>
+          </button>
+        </div>
+
+        <div class="divider" role="separator" aria-label="Pembatas login">
+          <span class="divider__line"></span>
+          <span class="divider__text">or</span>
+          <span class="divider__line"></span>
+        </div>
+
+        <form class="authForm" action="#" method="post">
+          <!-- Email / username -->
+          <div class="field">
+            <label class="field__label" for="email">Email or username</label>
+            <input
+              class="field__input"
+              type="text"
+              id="email"
+              name="email"
+              autocomplete="username"
+              placeholder="Enter email or username"
+              required
+            />
+          </div>
+
+          <!-- Password -->
+          <div class="field field--password">
+            <div class="field__topRow">
+              <label class="field__label" for="password">Password</label>
+              <a class="link" href="#" aria-label="Forgot Password">Forgot Password?</a>
+            </div>
+
+            <div class="passwordBox">
+              <input
+                class="field__input passwordBox__input"
+                type="password"
+                id="password"
+                name="password"
+                autocomplete="current-password"
+                placeholder="Enter your password"
+                required
+              />
+              <button
+                class="passwordBox__eye"
+                type="button"
+                aria-label="Toggle password visibility"
+                title="Show/Hide password"
+              >
+                <!-- icon eye (pure CSS/HTML) -->
+                <span aria-hidden="true">👁️</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Remember + Submit -->
+          <div class="field field--remember">
+            <label class="checkbox">
+              <input type="checkbox" name="remember" id="remember" />
+              <span class="checkbox__box" aria-hidden="true"></span>
+              <span class="checkbox__label">Remember Me</span>
+            </label>
+          </div>
+
+          <div class="actions">
+            <button class="btn btn--primary" type="submit">Sign In</button>
+          </div>
+
+          <p class="terms">
+            By continuing, you agree to our
+            <a class="link" href="#">Terms</a> and
+            <a class="link" href="#">Privacy Policy</a>.
+          </p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Toggle password visibility (optional, for better UX)
+    const eyeBtn = document.querySelector(".passwordBox__eye");
+    const passwordInput = document.getElementById("password");
+
+    eyeBtn?.addEventListener("click", () => {
+      const isPassword = passwordInput.type === "password";
+      passwordInput.type = isPassword ? "text" : "password";
+      eyeBtn.setAttribute("aria-label", isPassword ? "Hide password" : "Show password");
+    });
+  </script>
+</body>
+</html>
